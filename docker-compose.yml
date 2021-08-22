@@ -24,8 +24,6 @@ services:
     restart: unless-stopped
     ports:
       - 9090:9090
-    depends_on:
-      - pushgateway
     networks:
       - backend
 
