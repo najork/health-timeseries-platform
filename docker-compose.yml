@@ -11,8 +11,8 @@ networks:
 services:
 
   prometheus:
-    image: prom/prometheus:v2.28.1
-    container_name: prometheus.apollo.local
+    image: prom/prometheus:v2.29.1
+    container_name: prometheus.health-timeseries-platform.local
     volumes:
       - ./prometheus/:/etc/prometheus/
       - prometheus_data:/prometheus
@@ -31,7 +31,7 @@ services:
 
   grafana:
     image: grafana/grafana:8.0.4
-    container_name: grafana.apollo.local
+    container_name: grafana.health-timeseries-platform.local
     volumes:
       - grafana_data:/var/lib/grafana
       - ./grafana/provisioning/:/etc/grafana/provisioning/
@@ -47,12 +47,3 @@ services:
     networks:
       - backend
       - frontend
-
-  pushgateway:
-    image: prom/pushgateway:v1.4.1
-    container_name: pushgateway.apollo.local
-    restart: unless-stopped
-    ports:
-      - 9091:9091
-    networks:
-      - backend
