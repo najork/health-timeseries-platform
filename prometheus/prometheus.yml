@@ -13,9 +13,3 @@ scrape_configs:
     scrape_interval: 10s
     static_configs:
       - targets: ['prometheus.health-timeseries-platform.local:9090']
-
-  - job_name: 'pushgateway'
-    scrape_interval: 10s
-    honor_labels: true
-    static_configs:
-      - targets: ['pushgateway.health-timeseries-platform.local:9091']
